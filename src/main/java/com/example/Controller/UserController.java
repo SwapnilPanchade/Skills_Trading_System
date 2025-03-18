@@ -24,7 +24,7 @@ public class UserController {
 
     @GetMapping
     public String callingHi() {
-        return "HI";
+        return "This is the calling from postman ";
     }
 
 }
