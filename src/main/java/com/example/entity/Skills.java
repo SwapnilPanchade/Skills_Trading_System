@@ -3,6 +3,7 @@ package com.example.entity;
 public enum Skills {
     CODING,
     SINGING,
+    DANCING,
     PAINTING,
     CARPENTER,
     MECHANIC,

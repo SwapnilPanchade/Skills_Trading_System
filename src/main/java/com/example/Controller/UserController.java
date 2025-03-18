@@ -1,11 +1,10 @@
 package com.example.Controller;
 
+import com.example.DTO.UserRes;
 import com.example.entity.User;
 import com.example.service.UserService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,15 +16,19 @@ public class UserController {
     UserController(UserService userService) {
         this.userService = userService;
     }
+    @GetMapping
+    public String callingHi() {
+        return "This is the calling from postman ";
+    }
 
     @GetMapping("/getAll")
     public List<User> getAllUsers() {
         return userService.allUsers();
     }
 
-    @GetMapping
-    public String callingHi() {
-        return "This is the calling from postman ";
+    @PostMapping("/register")
+    public UserRes registerUser(@RequestBody User user){
+        return userService.addUser(user);
     }
 
 }
