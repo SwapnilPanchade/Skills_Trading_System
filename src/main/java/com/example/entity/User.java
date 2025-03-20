@@ -27,7 +27,8 @@ public class User {
 
     @Column(nullable = false)
     private String password;
-    private List<Skills> skills;
+    private List<Skills> offerredSkills;
+    private List<Skills> desiredSkills;
 
 
 }

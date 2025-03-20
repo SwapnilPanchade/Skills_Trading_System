@@ -6,6 +6,7 @@ import com.example.repo.UserRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -24,7 +25,17 @@ public class UserService {
         res.setId(u.getId());
         res.setName(u.getName());
         res.setEmail(u.getEmail());
-        res.setSkills(u.getSkills());
+        res.setSkills(u.getOfferredSkills());
+        return res;
+    }
+
+    public UserRes findById(long id) {
+        User user = userRepo.findById(id).get();
+        UserRes res = new UserRes();
+        res.setSkills(user.getOfferredSkills());
+        res.setId(user.getId());
+        res.setName(user.getName());
+        res.setEmail(user.getEmail());
         return res;
     }
 }

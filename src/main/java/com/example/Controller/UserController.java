@@ -30,5 +30,8 @@ public class UserController {
     public UserRes registerUser(@RequestBody User user){
         return userService.addUser(user);
     }
-
+    @GetMapping("/{id}")
+    public UserRes getUserById(@PathVariable long id){
+        return userService.findById(id);
+    }
 }
