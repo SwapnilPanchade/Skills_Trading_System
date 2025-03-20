@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.SimpleTimeZone;
 
 @RestController
 @RequestMapping("/api/user")
@@ -16,6 +17,7 @@ public class UserController {
     UserController(UserService userService) {
         this.userService = userService;
     }
+
     @GetMapping
     public String callingHi() {
         return "This is the calling from postman ";
@@ -26,12 +28,20 @@ public class UserController {
         return userService.allUsers();
     }
 
+    
+
     @PostMapping("/register")
-    public UserRes registerUser(@RequestBody User user){
+    public UserRes registerUser(@RequestBody User user) {
         return userService.addUser(user);
     }
+
     @GetMapping("/{id}")
-    public UserRes getUserById(@PathVariable long id){
+    public UserRes getUserById(@PathVariable long id) {
         return userService.findById(id);
+    }
+
+    @GetMapping("/{name}")
+    public UserRes findByUsername(@PathVariable String name){
+        return userService.findByUsername(name);
     }
 }

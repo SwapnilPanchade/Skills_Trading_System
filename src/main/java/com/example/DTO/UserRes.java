@@ -18,5 +18,6 @@ public class UserRes {
     private long id;
     private String name;
     private String email;
-    private List<Skills> skills;
+    private List<Skills> offeredSkills;
+    private List<Skills> desiredSkills;
 }
