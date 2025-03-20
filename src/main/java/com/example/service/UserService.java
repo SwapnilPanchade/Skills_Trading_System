@@ -1,14 +1,11 @@
 package com.example.service;
 
 import com.example.DTO.UserRes;
-import com.example.entity.Skills;
 import com.example.entity.User;
 import com.example.repo.UserRepo;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -38,7 +35,7 @@ public class UserService {
     }
 
     public UserRes findByUsername(String name) {
-        User user =  userRepo.findByUsername(name);
+        User user =  userRepo.findByname(name);
         return maptoUserres(user);
 
     }

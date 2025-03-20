@@ -28,7 +28,8 @@ public class UserController {
         return userService.allUsers();
     }
 
-    
+    @GetMapping("/findall")
+    public List<UserRes> findAllUsers(){ return userService.getAllUsers();}
 
     @PostMapping("/register")
     public UserRes registerUser(@RequestBody User user) {
