@@ -36,6 +36,13 @@ public class UserController {
         return userService.addUser(user);
     }
 
+    @PostMapping("/login")
+    public String loginUser(@RequestBody User user){
+        boolean isValid = userService.validUser(user);
+        if(isValid) return "Your login is Sucessfull user " + user.getName();
+        else return "Sorry Invalid User";
+    }
+
     @GetMapping("/{id}")
     public UserRes getUserById(@PathVariable long id) {
         return userService.findById(id);

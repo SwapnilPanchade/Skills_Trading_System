@@ -49,4 +49,12 @@ public class UserService {
         res.setDesiredSkills(user.getDesiredSkills());
         return res;
     }
+
+    public boolean validUser(User user) {
+        long id = user.getId();
+        String pass = user.getPassword();
+        User u1 = userRepo.findById(id).orElseThrow(() -> new RuntimeException("Invalid user, There is no user with this Id"));
+        if(u1.getPassword().equals(pass))return true;
+        return false;
+    }
 }
